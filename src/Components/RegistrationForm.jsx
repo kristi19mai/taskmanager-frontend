@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { fetchData } from "../axios/custom";
+import { ToastContainer, toast } from "react-toastify";
 
 // Validierungsregeln
 const RegistrationSchema = Yup.object().shape({
@@ -31,15 +33,24 @@ const RegistrationForm = () => {
       // Validierungsregeln
       validationSchema={RegistrationSchema}
       // Was passiert beim Absenden
-      onSubmit={(values, { setSubmitting }) => {
-        // Simulieren wir einen Server-Aufruf
-        setTimeout(() => {
-          alert(
-            "Sie haben folgende Daten gesendet: \n" +
-              JSON.stringify(values, null, 2)
-          );
+      onSubmit={async (values, { setSubmitting, setErrors, resetForm }) => {
+        try {
+          const response = await fetchData({
+            url: "/auth/register",
+            data: values,
+            method: "POST",
+          });
+          console.log(response);
+
+          toast.success(response.data.msg);
           setSubmitting(false);
-        }, 500);
+          resetForm();
+        } catch (error) {
+          console.log(error.response.data);
+          toast.error(error.response.data);
+          setErrors(true);
+        } finally {
+        }
       }}
     >
       {({ isSubmitting }) => (
@@ -92,12 +103,7 @@ const RegistrationForm = () => {
           <div className="form-group">
             <div className="checkbox-container">
               {" "}
-              <Field
-                type="checkbox"
-                name="acceptTerms"
-                id="acceptTerms"
-                
-              />
+              <Field type="checkbox" name="acceptTerms" id="acceptTerms" />
               <label htmlFor="acceptTerms" className="form-label">
                 Ich akzeptiere die Nutzungsbedingungen
               </label>
@@ -116,6 +122,12 @@ const RegistrationForm = () => {
           >
             {isSubmitting ? "Wird registriert..." : "Registrieren"}
           </button>
+          <ToastContainer
+            position="bottom-center"
+            theme="light"
+            autoClose="5000"
+            height="40px"
+          />
         </Form>
       )}
     </Formik>

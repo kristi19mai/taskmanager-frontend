@@ -1,6 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+import { fetchData } from "../axios/custom";
+import { ToastContainer, toast } from "react-toastify";
+import { useGlobalContext } from "../context/Context";
 
 // Validierungsregeln
 const LoginSchema = Yup.object().shape({
@@ -13,6 +16,8 @@ const LoginSchema = Yup.object().shape({
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useGlobalContext();
+
   return (
     <Formik
       // Anfangswerte der Felder
@@ -20,15 +25,22 @@ const LoginForm = () => {
       // Validierungsregeln
       validationSchema={LoginSchema}
       // Was passiert beim Absenden
-      onSubmit={(values, { setSubmitting }) => {
-        // Simulieren wir einen Server-Aufruf
-        setTimeout(() => {
-          alert(
-            "Sie haben folgende Daten gesendet: \n" +
-              JSON.stringify(values, null, 2)
-          );
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
+        try {
+          const response = await fetchData({
+            url: "/auth/login",
+            method: "POST",
+            data: values,
+          });
+          console.log(response.data.user);
+
+          setUser(response.data.user);
+          resetForm();
+        } catch (error) {
+          toast.error(error.response?.data);
+        } finally {
           setSubmitting(false);
-        }, 500);
+        }
       }}
     >
       {({ isSubmitting }) => (
@@ -58,7 +70,7 @@ const LoginForm = () => {
               className="form-input"
               placeholder="Ihr Passwort"
             />
-           
+
             <ErrorMessage
               name="password"
               component="div"
@@ -73,6 +85,11 @@ const LoginForm = () => {
           >
             {isSubmitting ? "Wird angemeldet..." : "Anmelden"}
           </button>
+          <ToastContainer
+            position="bottom-center"
+            theme="light"
+            autoClose="3000"
+          />
         </Form>
       )}
     </Formik>
