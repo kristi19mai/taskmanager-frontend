@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useGlobalContext } from "../context/Context";
 
-const API_BASE_URL=import.meta.env.VITE_BACKEND_URL;
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 const logoutUrl = `${API_BASE_URL}/api/v1/auth/logout`;
 
 const Logout = () => {

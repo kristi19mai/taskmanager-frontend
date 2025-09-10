@@ -6,7 +6,6 @@ import axios from "axios";
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 const registerUrl = `${API_BASE_URL}/api/v1/auth/register`;
 
-
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
@@ -23,7 +22,7 @@ export const action = async ({ request }) => {
 const Register = () => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  
+
   return (
     <Form className="form" method="POST">
       <h4>Registrieren</h4>
@@ -33,7 +32,7 @@ const Register = () => {
         name="name"
         title="Name"
         maxlength={40}
-        defaultValue='Khristina'
+        defaultValue="Khristina"
       />
       <FormRow
         type="email"
@@ -49,17 +48,15 @@ const Register = () => {
         title="Passwort"
         minlength={6}
         maxlength={40}
-        defaultValue='secret'
+        defaultValue="secret"
       />
-      
-        <div className="checkbox-container" >
-          <input type="checkbox" name="acceptTerms" id="acceptTerms"
-          required />
-          <label htmlFor="acceptTerms" className="form-label">
-            Ich akzeptiere die Nutzungsbedingungen
-          </label>
-        </div>
-     
+
+      <div className="checkbox-container">
+        <input type="checkbox" name="acceptTerms" id="acceptTerms" required />
+        <label htmlFor="acceptTerms" className="form-label">
+          Ich akzeptiere die Nutzungsbedingungen
+        </label>
+      </div>
 
       <button type="submit" className="btn btn-block">
         {isSubmitting ? "Wird registriert..." : "Registrieren"}

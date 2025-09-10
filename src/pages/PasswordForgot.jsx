@@ -3,9 +3,8 @@ import { FormRow } from "../Components/index";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
-const API_BASE_URL=import.meta.env.VITE_BACKEND_URL;
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 const passwordForgotUrl = `${API_BASE_URL}/api/v1/auth/forgot-password`;
-
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
