@@ -1,5 +1,19 @@
 {
-  "routes": {
-    "/**": "index.html"
+  "routes": [
+    {
+      "route": "/user/verify-email",
+      "serve": "index.html"
+    },
+    {
+      "route": "/tasks",
+      "serve": "index.html"
+    },
+    {
+      "route": "/user/reset-password",
+      "serve": "index.html"
+    }
+  ],
+  "fallback": {
+    "page": "/index.html"
   }
 }
