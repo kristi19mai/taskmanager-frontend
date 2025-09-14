@@ -11,3 +11,4 @@ export { default as DateInput } from "./DateInput";
 export { default as FileInput } from "./FileInput";
 export { default as SearchInput } from "./SearchInput";
 export { default as Spinner } from "./Spinner";
+export { default as TaskDetails } from "./TaskDetails";
