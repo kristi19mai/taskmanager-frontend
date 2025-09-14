@@ -23,6 +23,8 @@ const TaskList = () => {
 
   const confirmDelete = () => {
     if (fileToDeleteName) {
+      console.log(fileToDeleteName);
+      
       deleteFile({ fileToDelete: fileToDeleteName });
     }
     if (taskToDeleteId !== null) {

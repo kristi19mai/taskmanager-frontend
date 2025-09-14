@@ -3,8 +3,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import ImportanceBtn from "./ImportanceBtn";
 import TaskDetails from "./TaskDetails";
 
-
-const TaskItem = ({ taskInfo, changeActiveTask, activeTask,onDelete }) => {
+const TaskItem = ({ taskInfo, changeActiveTask, activeTask, onDelete }) => {
   const {
     task,
     important,
@@ -17,8 +16,6 @@ const TaskItem = ({ taskInfo, changeActiveTask, activeTask,onDelete }) => {
     status,
     _id,
   } = taskInfo;
-
-  
 
   return (
     <li>
@@ -36,7 +33,11 @@ const TaskItem = ({ taskInfo, changeActiveTask, activeTask,onDelete }) => {
         <div className="task-btns">
           <ImportanceBtn important={important} taskId={_id} />
 
-          <button type="button" className="icon-btn" onClick={()=>onDelete(_id,storedFilename)}>
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={() => onDelete(_id, storedFilename)}
+          >
             <RiDeleteBinLine />
           </button>
         </div>
