@@ -1,41 +1,8 @@
 {
   "routes": [
     {
-      "route": "/user/verify-email",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/login",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/register",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/password-forgot",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/logout",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/user/reset-password",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/email-info",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/email-info-password",
-      "serve": "/index.html"
-    },
-    {
-      "route": "/tasks",
+      "route": "/*",
       "serve": "/index.html"
     }
-  ],
-  "staticDir": "dist"
+  ]
 }
