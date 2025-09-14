@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
-import {fetchTasks} from "./axios/custom";
+import { fetchTasks } from "./axios/custom";
 import { useGlobalContext } from "./context/Context";
+import { ToastContainer, toast } from "react-toastify";
 
 const fetchAllTasks = async (params) => {
   const { task, important, status } = params;
@@ -16,7 +17,9 @@ const fetchAllTasks = async (params) => {
     queryParams.append("status", status);
   }
 
-  const response = await fetchTasks.get("", {params:Object.fromEntries(queryParams)});
+  const response = await fetchTasks.get("", {
+    params: Object.fromEntries(queryParams),
+  });
   return response.data;
 };
 
@@ -25,7 +28,7 @@ export const useFetchTasks = () => {
 
   const { isPending, data, isError, error } = useQuery({
     queryKey: queryKey,
-    queryFn: () => fetchAllTasks(queryKey[1]||{}),
+    queryFn: () => fetchAllTasks(queryKey[1] || {}),
   });
   return { isPending, error, isError, data };
 };
@@ -51,7 +54,6 @@ export const useUpdateTask = () => {
       fetchTasks.patch(`/${taskId}`, requestBody),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
-      
     },
     onError: (error) => {
       toast.error(error.response.data.msg);
@@ -66,7 +68,6 @@ export const useDeleteTask = () => {
     mutationFn: (taskId) => fetchTasks.delete(`/${taskId}`),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
-      
     },
     onError: (error) => {
       toast.error(error.response.data.msg);
@@ -95,10 +96,10 @@ export const useUploadFile = () => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
     onError: (error) => {
-      if (error?.response?.data?.msg) {
-        toast.error(error.response.data.msg);
+      if (error?.response?.data) {
+        toast.error(error.response.data);
       } else {
-        console.error(error);
+        console.log(error);
       }
     },
   });
@@ -124,10 +125,10 @@ export const useDeleteFile = () => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
     onError: (error) => {
-      if (error?.response?.data?.msg) {
-        toast.error(error.response.data.msg);
+      if (error?.response?.data) {
+        toast.error(error.response.data);
       } else {
-        console.error(error);
+        console.log(error);
       }
     },
   });

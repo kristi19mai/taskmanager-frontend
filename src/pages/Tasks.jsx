@@ -3,6 +3,7 @@ import { redirect, useLoaderData } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import { useGlobalContext } from "../context/Context.jsx";
+import { ToastContainer } from "react-toastify";
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 const getUserUrl = `${API_BASE_URL}/api/v1/users/showMe`;
@@ -30,6 +31,7 @@ const Tasks = () => {
         <TaskList />
         <AddTaskForm />
       </div>
+       <ToastContainer position="bottom-center" theme="light" autoClose="5000" />
     </>
   );
 };
