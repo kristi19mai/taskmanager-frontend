@@ -25,7 +25,7 @@ const FileInput = ({ handleChangeFile, fileTitle }) => {
         onClick={handleButtonClick}
       >
         <IoAttach />
-        <span> Datei hinzufügen</span>
+        <span> PDF-Datei hinzufügen (max. 1MB)</span>
       </button>
     </>
   );
