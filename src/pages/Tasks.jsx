@@ -1,4 +1,4 @@
-import { Sidebar, TaskList, AddTaskForm } from "../components/index.js";
+import { Sidebar, TaskList, AddTaskForm } from "../Components/index.js";
 import { redirect, useLoaderData } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
