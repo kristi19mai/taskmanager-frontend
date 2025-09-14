@@ -1,6 +1,6 @@
 import { Form, useNavigation, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { FormRow } from "../Components/index";
+import { FormRow } from "../components/index.js";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useGlobalContext } from "../context/Context";

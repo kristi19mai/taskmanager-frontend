@@ -1,12 +1,13 @@
-
 export { default as Sidebar } from "./Sidebar";
 export { default as AddTaskForm } from "./AddTaskForm";
 export { default as TaskList } from "./TaskList";
-export {default as FormRow} from "./FormRow"
-export {default as CloseBtn} from "./CloseBtn"
-export {default as StatusBtn} from "./StatusBtn"
-export {default as ImportanceBtn} from "./ImportanceBtn"
-export {default as Modal} from "./Modal"
-export {default as TaskItem} from "./TaskItem"
-
-
+export { default as FormRow } from "./FormRow";
+export { default as CloseBtn } from "./CloseBtn";
+export { default as StatusBtn } from "./StatusBtn";
+export { default as ImportanceBtn } from "./ImportanceBtn";
+export { default as Modal } from "./Modal";
+export { default as TaskItem } from "./TaskItem";
+export { default as DateInput } from "./DateInput";
+export { default as FileInput } from "./FileInput";
+export { default as SearchInput } from "./SearchInput";
+export { default as Spinner } from "./Spinner";

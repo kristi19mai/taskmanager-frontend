@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useFetchTasks } from "../reactQueryCustomHooks";
+import { useFetchTasks } from "../reactQueryCustomHooks.jsx";
 import { TaskItem, Modal } from "./index.js";
-import { useGlobalContext } from "../context/Context";
-import { useDeleteTask, useDeleteFile } from "../reactQueryCustomHooks";
+import { useGlobalContext } from "../context/Context.jsx";
+import { useDeleteTask, useDeleteFile } from "../reactQueryCustomHooks.jsx";
 
 const TaskList = () => {
   const [activeTask, setActiveTask] = useState("");
@@ -24,7 +24,7 @@ const TaskList = () => {
   const confirmDelete = () => {
     if (fileToDeleteName) {
       console.log(fileToDeleteName);
-      
+
       deleteFile({ fileToDelete: fileToDeleteName });
     }
     if (taskToDeleteId !== null) {

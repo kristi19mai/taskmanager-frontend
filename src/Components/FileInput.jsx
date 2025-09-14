@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { IoAttach } from "react-icons/io5";
 
-const FileInput = ({ handleChangeFile, fileTitle }) => {
+const FileInput = ({ handleChangeFile }) => {
   const fileInputRef = useRef(null);
 
   const handleButtonClick = () => {

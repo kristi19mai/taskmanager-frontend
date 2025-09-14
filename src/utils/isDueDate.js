@@ -1,5 +1,6 @@
-import { formatDate } from "./formatDate";
-export const isDueDate = (date) => {
+import { formatDate } from "./index.js";
+
+const isDueDate = (date) => {
   const today = formatDate(Date.now());
   const newDate = formatDate(date);
 
@@ -16,3 +17,5 @@ export const isDueDate = (date) => {
   }
   return false;
 };
+
+export default isDueDate;

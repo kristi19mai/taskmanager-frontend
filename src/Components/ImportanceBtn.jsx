@@ -1,6 +1,6 @@
-import { BiSolidStar } from "react-icons/bi";
-import { BiStar } from "react-icons/bi";
+import { BiSolidStar, BiStar } from "react-icons/bi";
 import { useUpdateTask } from "../reactQueryCustomHooks";
+
 const ImportanceBtn = ({ important, taskId }) => {
   const { updateTask } = useUpdateTask();
   return (

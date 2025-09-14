@@ -1,7 +1,7 @@
 import { links } from "../data.jsx";
 import { FaTimes } from "react-icons/fa";
 import { useGlobalContext } from "../context/Context.jsx";
-import SearchInput from "./SearchInput.jsx";
+import { SearchInput } from "./index.js";
 
 const Sidebar = () => {
   const {
@@ -10,11 +10,9 @@ const Sidebar = () => {
     setOnlyImportant,
     setTaskStatus,
     setSearchTerm,
-    
   } = useGlobalContext();
   const handleClick = (e) => {
     const btnName = e.currentTarget.name;
-   
 
     if (btnName === "wichtig") {
       setOnlyImportant(true);
@@ -27,7 +25,6 @@ const Sidebar = () => {
       setTaskStatus("");
       setSearchTerm("");
     }
-    
   };
   return (
     <aside className={isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}>
@@ -42,7 +39,6 @@ const Sidebar = () => {
                 className="icon-btn"
                 name={text}
                 onClick={handleClick}
-                
               >
                 {icon}
                 <p>{text}</p>

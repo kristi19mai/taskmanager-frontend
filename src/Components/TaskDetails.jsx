@@ -1,19 +1,19 @@
-import { formatDate } from "../utils/formatDate";
-import { isDueDate } from "../utils/isDueDate";
-import { getDateString } from "../utils/getDateString";
-import { IoDocumentOutline } from "react-icons/io5";
-import { IoCloseOutline } from "react-icons/io5";
-import DateInput from "./DateInput";
-import FileInput from "./FileInput";
-import {CloseBtn,StatusBtn,ImportanceBtn} from "./index.js";
+import { formatDate, isDueDate, getDateString } from "../utils/index.js";
+import { IoDocumentOutline, IoCloseOutline } from "react-icons/io5";
+import {
+  CloseBtn,
+  StatusBtn,
+  ImportanceBtn,
+  DateInput,
+  FileInput,
+} from "./index.js";
 import {
   useUpdateTask,
   debounce,
   useUploadFile,
   useDeleteFile,
-} from "../reactQueryCustomHooks";
+} from "../reactQueryCustomHooks.jsx";
 import { useState, useRef, useEffect } from "react";
-import { useGlobalContext } from "../context/Context";
 
 const TaskDetails = ({ taskInfo, changeActiveTask }) => {
   const taskDetails = useRef(null);
@@ -124,12 +124,10 @@ const TaskDetails = ({ taskInfo, changeActiveTask }) => {
 
   return (
     <article className="task-details" ref={taskDetails}>
-      <CloseBtn 
-        handleClick={changeActiveTask}
-      />
+      <CloseBtn handleClick={changeActiveTask} />
 
       <form className="task-details-form">
-        <div className='input-container task-input-container'>
+        <div className="input-container task-input-container">
           <StatusBtn status={status} taskId={_id} />
           <textarea
             name="task"

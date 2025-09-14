@@ -1,5 +1,5 @@
 import { Form, useNavigation, redirect } from "react-router-dom";
-import { FormRow } from "../Components/index";
+import { FormRow } from "../components/index.js";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 

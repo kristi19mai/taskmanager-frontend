@@ -1,4 +1,6 @@
-export const getDateString=({dayText,dayNumber,monthText})=>{
-const string=`Fällig ${dayText}., ${dayNumber} ${monthText}`;
-return string
-}
+const getDateString = ({ dayText, dayNumber, monthText }) => {
+  const string = `Fällig ${dayText}., ${dayNumber} ${monthText}`;
+  return string;
+};
+
+export default getDateString;

@@ -1,7 +1,5 @@
-import StatusBtn from "./StatusBtn";
+import { StatusBtn, ImportanceBtn, TaskDetails } from "./index.js";
 import { RiDeleteBinLine } from "react-icons/ri";
-import ImportanceBtn from "./ImportanceBtn";
-import TaskDetails from "./TaskDetails";
 
 const TaskItem = ({ taskInfo, changeActiveTask, activeTask, onDelete }) => {
   const {

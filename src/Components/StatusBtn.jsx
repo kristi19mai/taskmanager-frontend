@@ -1,8 +1,8 @@
-import { FaRegCircle } from "react-icons/fa6";
-import { FaRegCircleCheck } from "react-icons/fa6";
+import { FaRegCircle, FaRegCircleCheck } from "react-icons/fa6";
 import { useUpdateTask } from "../reactQueryCustomHooks";
+
 const StatusBtn = ({ status, taskId }) => {
-  const {updateTask} = useUpdateTask();
+  const { updateTask } = useUpdateTask();
   return (
     <button
       className="icon-btn"
